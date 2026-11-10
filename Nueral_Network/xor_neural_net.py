@@ -23,12 +23,13 @@ def train_xor(learning_rate=0.5, epochs=10000):
     np.random.seed(42) # For reproducible random weights
 
     # Initialize Weights and Biases randomly
-    # Input size = 2, Hidden size = 2, Output size = 1
-    W1 = np.random.uniform(-1, 1, (2, 2))  # Weights for hidden layer
-    b1 = np.zeros((1, 2))                  # Biases for hidden layer
+    HIDDEN_SIZE = 4
     
-    W2 = np.random.uniform(-1, 1, (2, 1))  # Weights for output layer
-    b2 = np.zeros((1, 1))                  # Bias for output layer
+    W1 = np.random.uniform(-1, 1, (2, HIDDEN_SIZE))  # Changed from (2, 2) to (2, 4)
+    b1 = np.zeros((1, HIDDEN_SIZE))                  # Changed from (1, 2) to (1, 4)
+    
+    W2 = np.random.uniform(-1, 1, (HIDDEN_SIZE, 1))  # Changed from (2, 1) to (4, 1)
+    b2 = np.zeros((1, 1))                # Bias for output layer
 
     print(f"Training with Learning Rate: {learning_rate}, Epochs: {epochs}...\n")
 
